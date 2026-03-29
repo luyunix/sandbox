@@ -1,0 +1,20 @@
+services:
+  faber_sandbox:
+    build:
+      context: ../sandbox
+      dockerfile: Dockerfile
+    image: faber_sandbox
+    container_name: faber_sandbox
+    restart: "always"
+    ports:
+      - "8080:8080"
+      - "9222:9222"
+      - "5900:5900"
+      - "5901:5901"
+    networks:
+      - faber-network
+
+networks:
+  faber-network:
+    driver: bridge
+    name: faber-network
